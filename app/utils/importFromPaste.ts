@@ -69,7 +69,7 @@ async function importTextAsFile(
     // Determine a filename from decrypted data if possible
     let name = "unknown.json";
     try {
-      const decrypted = await TextCipher.decrypt(wrapper.data);
+      const decrypted = await getJsonData(wrapper.data);
       const decryptedObj = JSON.parse(decrypted);
       name = detectFromContent(decryptedObj) || name;
     } catch {
